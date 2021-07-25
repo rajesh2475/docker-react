@@ -2,6 +2,10 @@ sudo: required
 services:
   - docker
 
+branches:
+  only: 
+    - main
+
 before_install:
   - docker build -t raje2012/docker-react -f Dockerfile.dev .
 
