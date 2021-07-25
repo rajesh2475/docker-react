@@ -1,4 +1,4 @@
-# docker-react1
+# docker-react
 
 # Create react app 
 npx create-react-app <app-name>
