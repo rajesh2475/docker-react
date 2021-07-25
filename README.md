@@ -11,3 +11,10 @@ RUN dev env
   docker build -t raje2012/web -f Dockerfile.dev .
   # you can remove volumes if needed
   docker run  -p 3000:3000 -v ${PWD}:/app raje2012/web
+
+  
+Run dev
+  docker-composer up
+  
+prod 
+  docker run  -p 3000:80 -v ${PWD}:/app raje2012/web
