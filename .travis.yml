@@ -1,25 +1,22 @@
 sudo: required
+language: generic
+
 services:
   - docker
 
-branches:
-  only: 
-    - main
-
 before_install:
-  - docker build -t raje2012/docker-react -f Dockerfile.dev .
-
+  - docker build -t stephengrider/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true raje2012/docker-react npm run test
+  - docker run -e CI=true stephengrider/docker-react npm run test
 
 deploy:
   provider: elasticbeanstalk
   region: 'us-east-2'
-  app: 'react basic app'
-  env: 'Reactbasicapp-env'
+  app: 'docker-web'
+  env: 'Dockerweb-env'
   bucket_name: 'elasticbeanstalk-us-east-2-807882652755'
-  bucket_path: 'react basic app'
+  bucket_path: 'docker-web'
   on:
     branch: main
   access_key_id: $AWS_ACCESS_KEY
