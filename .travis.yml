@@ -7,11 +7,11 @@ branches:
     - main
 
 before_install:
-  - docker build -t raje2012/docker-react -f .
+  - docker build -t raje2012/docker-react -f Dockerfile.dev .
 
 
 script:
-  - docker run raje2012/docker-react 
+  - docker run -e CI=true raje2012/docker-react npm run test
 
 deploy:
   provider: elasticbeanstalk
